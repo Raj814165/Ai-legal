@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "name": "pp",
+    "email": "pp@pp.com",
+    "password": "$2a$10$exJY6SMSaDmD0UjexXqB3uk9Dp84eliG0/koeaT9FszpQDX6rBWja"
+  },
+  {
+    "id": 2,
+    "name": "prakash saw",
+    "email": "prakash77saw@gmail.com",
+    "password": "$2a$10$1rkk9fzULEJXELUmjZgGyOtcigE0othKjaiV3Yvg4AN8ntLqi1D.q"
+  },
+  {
+    "id": 3,
+    "name": "xyz",
+    "email": "saini@gmail.com",
+    "password": "$2a$10$RrEFEEkGkoZjDSW1Q8VL5uR1FNqWvrrzuzIR8umpw2gLFlKNmxTDm"
+  }
+]

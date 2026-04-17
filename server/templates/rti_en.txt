@@ -1,0 +1,23 @@
+To,
+The Public Information Officer
+[[department_name]]
+[[office_address]]
+
+Subject: Application under RTI Act, 2005
+
+Respected Sir/Madam,
+
+I, [[applicant_name]], son/daughter of [[applicant_father_name]], resident of [[applicant_address]], hereby request the following information under the Right to Information Act, 2005:
+
+1. [[rti_question_1]]
+2. [[rti_question_2]]
+
+RTI application fee details: [[fee_details]]
+Preferred mode of receiving information: [[info_delivery_mode]]
+
+I request you to provide the information at the earliest and in accordance with the provisions of the RTI Act. I am attaching proof of identity and my contact details are [[applicant_contact]].
+
+Yours faithfully,
+
+[[applicant_name]]
+Date: [[date]]

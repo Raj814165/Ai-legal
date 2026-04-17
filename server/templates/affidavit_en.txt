@@ -1,0 +1,17 @@
+AFFIDAVIT
+
+I, [[deponent_name]], aged about [[deponent_age]] years, occupation [[deponent_occupation]], residing at [[deponent_address]], do hereby solemnly affirm and declare as under:
+
+1. That I am the deponent herein and am fully acquainted with the facts of this affidavit concerning [[declaration_subject]].
+2. That [[statement_1]]
+3. That [[statement_2]]
+4. That [[statement_3]]
+
+I state that the contents of this affidavit are true and correct to the best of my knowledge and belief, and nothing material has been concealed therefrom.
+
+Verified at [[place]] on [[date]].
+
+Deponent
+[[deponent_name]]
+
+Identity proof, if any: [[id_proof]]

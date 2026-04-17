@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Legal Aid</title>
+    <script>
+      // Preload theme to avoid flash
+      (function(){
+        try{
+          var t = localStorage.getItem('theme');
+          if(!t && window.matchMedia){ t = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark' }
+          if(!t) t = 'dark';
+          document.documentElement.classList.add('theme-' + t);
+        }catch(e){}
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

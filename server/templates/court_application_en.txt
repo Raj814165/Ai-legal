@@ -1,0 +1,32 @@
+IN THE COURT OF [[court_name]]
+
+Case No.: [[case_number]]
+
+In the matter of:
+[[applicant_name]]
+Versus
+[[respondent_name]]
+
+APPLICATION FOR [[application_type]]
+
+Most respectfully submitted:
+
+1. That the present application is being filed by the applicant seeking [[application_type]].
+2. Brief facts of the matter are as follows:
+[[background_facts]]
+3. Grounds for the present application:
+[[grounds]]
+
+PRAYER
+
+In view of the facts stated above, it is most respectfully prayed that this Hon'ble Court may be pleased to:
+[[prayer]]
+
+Any other order deemed fit in the interest of justice may also kindly be passed.
+
+Filed by:
+[[applicant_name]]
+
+Next date, if any: [[hearing_date]]
+Place: [[place]]
+Date: [[date]]
