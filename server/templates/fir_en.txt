@@ -1,0 +1,26 @@
+To,
+The Station House Officer
+[[police_station]]
+
+Subject: Report for FIR regarding offence under relevant sections
+
+Sir/Madam,
+
+I, [[complainant_name]], resident of [[complainant_address]], wish to report the following incident for necessary action and registration of FIR:
+
+Date of incident: [[date_of_incident]]
+Time: [[time_of_incident]]
+Place: [[location]]
+
+Details of incident:
+[[description]]
+
+Names of accused (if known): [[accused_names]]
+Witness details: [[witness_details]]
+
+I request that the matter be investigated and necessary action be taken.
+
+Yours faithfully,
+
+[[complainant_name]]
+Contact: [[contact]]

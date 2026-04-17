@@ -1,0 +1,30 @@
+LEGAL NOTICE
+
+Date: [[date]]
+
+From:
+[[sender_name]]
+[[sender_address]]
+
+To:
+[[recipient_name]]
+[[recipient_address]]
+
+Subject: Legal notice regarding [[subject_matter]]
+
+Under instructions from and on behalf of my client, [[sender_name]], I hereby serve upon you the present legal notice.
+
+That the facts giving rise to this notice are as follows:
+[[background_facts]]
+
+That you have committed the following acts / breaches:
+[[breach_details]]
+
+You are therefore called upon to:
+[[legal_demand]]
+
+You are required to comply within [[compliance_deadline]] from receipt of this notice, failing which [[legal_consequences]] and all costs and consequences shall be entirely upon you.
+
+This notice is issued without prejudice to all other legal rights and remedies available in law and equity.
+
+[[sender_name]]

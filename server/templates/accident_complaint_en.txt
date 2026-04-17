@@ -1,0 +1,31 @@
+To,
+The Station House Officer
+[[police_station]]
+
+Subject: Complaint regarding road accident dated [[accident_date]]
+
+Sir/Madam,
+
+I, [[complainant_name]], resident of [[complainant_address]], submit this complaint regarding a road accident that took place on [[accident_date]] at [[accident_time]] near [[accident_location]].
+
+Vehicles involved:
+[[vehicle_details]]
+
+Injuries / damage caused:
+[[injury_details]]
+
+Accused / other driver details:
+[[accused_details]]
+
+Brief facts of the accident:
+[[incident_details]]
+
+Witness details:
+[[witness_details]]
+
+I request that my complaint be recorded, the matter investigated, and legal action taken in accordance with law.
+
+Yours faithfully,
+
+[[complainant_name]]
+Date: [[date]]

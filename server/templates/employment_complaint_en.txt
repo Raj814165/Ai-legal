@@ -1,0 +1,27 @@
+To,
+The Management / Competent Authority
+[[employer_name]]
+
+Subject: Employment complaint regarding [[grievance_type]]
+
+Sir/Madam,
+
+I, [[employee_name]], residing at [[employee_address]], worked as [[designation]] with your organization during [[employment_period]].
+
+My grievance is as follows:
+[[issue_details]]
+
+Amount due / compensation claimed: [[amount_due]]
+
+Earlier requests / complaints made:
+[[prior_requests]]
+
+I therefore call upon you to take the following action immediately:
+[[relief_requested]]
+
+Failing prompt action, I shall be constrained to approach the appropriate labour authorities / legal forum.
+
+Yours faithfully,
+
+[[employee_name]]
+Date: [[date]]

@@ -1,0 +1,23 @@
+To,
+[[landlord_name]]
+
+Subject: Tenant complaint regarding [[tenancy_issue]] at [[property_address]]
+
+Sir/Madam,
+
+I, [[tenant_name]], residing at [[tenant_address]], have been a tenant at [[property_address]] since [[tenancy_start]].
+
+I wish to raise the following grievance:
+[[incident_details]]
+
+Security deposit involved: [[deposit_amount]]
+
+Despite requests, the issue remains unresolved. I therefore request the following relief:
+[[relief_requested]]
+
+You are requested to resolve this matter within [[response_deadline]], failing which I shall be constrained to seek appropriate legal remedies.
+
+Yours faithfully,
+
+[[tenant_name]]
+Date: [[date]]

@@ -1,0 +1,31 @@
+प्रति,
+थाना प्रभारी
+[[police_station]]
+
+विषय: दिनांक [[accident_date]] की सड़क दुर्घटना के संबंध में शिकायत
+
+महोदय / महोदया,
+
+मैं, [[complainant_name]], निवासी [[complainant_address]], यह शिकायत प्रस्तुत करता / करती हूं कि दिनांक [[accident_date]] को समय [[accident_time]] पर [[accident_location]] के पास एक सड़क दुर्घटना हुई।
+
+शामिल वाहन:
+[[vehicle_details]]
+
+चोट / नुकसान का विवरण:
+[[injury_details]]
+
+अन्य चालक / आरोपी का विवरण:
+[[accused_details]]
+
+दुर्घटना का संक्षिप्त विवरण:
+[[incident_details]]
+
+गवाहों का विवरण:
+[[witness_details]]
+
+कृपया मेरी शिकायत दर्ज कर मामले की जांच की जाए और विधि अनुसार कार्रवाई की जाए।
+
+भवदीय,
+
+[[complainant_name]]
+दिनांक: [[date]]

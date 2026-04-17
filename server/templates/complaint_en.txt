@@ -1,0 +1,22 @@
+To,
+The Consumer Forum / Manager
+[[vendor_name]]
+[[vendor_address]]
+
+Subject: Consumer complaint regarding defective product / deficient service
+
+Respected Sir/Madam,
+
+I, [[consumer_name]], resident at [[consumer_address]], bought / availed [[product_or_service]] on [[purchase_date]] from [[vendor_name]]. The following issues were noticed:
+
+[[issues]]
+
+Loss / inconvenience suffered: [[losses]]
+
+I request redressal in the form of [[remedy_requested]]. You are called upon to resolve this complaint within [[response_deadline]] from receipt of this notice.
+
+Yours faithfully,
+
+[[consumer_name]]
+Contact: [[contact]]
+Date: [[date]]

@@ -1,0 +1,33 @@
+To,
+The Cyber Crime Cell / Station House Officer
+
+Subject: Complaint regarding [[fraud_mode]] fraud
+
+Sir/Madam,
+
+I, [[complainant_name]], resident of [[complainant_address]], submit this complaint regarding a cyber fraud incident.
+
+Date: [[incident_date]]
+Time: [[incident_time]]
+Platform / App / Website: [[platform_used]]
+
+Nature of fraud:
+[[fraud_mode]]
+
+Transaction / account details:
+[[transaction_details]]
+
+Amount lost: [[loss_amount]]
+
+Detailed narration:
+[[incident_details]]
+
+Suspect details / phone numbers / URLs:
+[[suspect_details]]
+
+I request immediate investigation, blocking of beneficiary accounts if possible, and necessary legal action. My contact details are [[contact]].
+
+Yours faithfully,
+
+[[complainant_name]]
+Date: [[date]]
