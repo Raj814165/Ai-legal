@@ -6,3 +6,6 @@ export default function EditableDocument({ initial = '', onChange }){
     <textarea value={value} onChange={e=>{setValue(e.target.value); onChange && onChange(e.target.value)}} className="form-textarea w-full" />
   )
 }
+
+
+// mongodb+srv://Cit:qEpCuvJuRUl1kXBj@cit.mcigmea.mongodb.net/

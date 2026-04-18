@@ -14,14 +14,14 @@ app.use('/api', routes);
 async function start() {
   try {
     await connectDB();
-    const PORT = process.env.PORT || 4000;
-    app.listen(PORT, () => {
-      console.log(`Server running on port ${PORT}`);
-    });
   } catch (err) {
-    console.error('Failed to start server', err);
-    process.exit(1);
+    console.error('Warning: DB connection failed, continuing with fallback store.', err && err.message ? err.message : err);
   }
+
+  const PORT = process.env.PORT || 4000;
+  app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+  });
 }
 
 start();
