@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Routes, Route, useLocation } from 'react-router-dom'
 import Landing from './pages/Home'
 import Dashboard from './pages/Dashboard'
@@ -14,15 +14,17 @@ import { useAuth } from './contexts/AuthContext'
 export default function App(){
   const location = useLocation()
   const { isAuthenticated } = useAuth()
-  const showSidebar = isAuthenticated && (
+  const [mobileOpen, setMobileOpen] = useState(false)
+
+  const showSidebarBase = isAuthenticated && (
     location.pathname === '/dashboard' || location.pathname.startsWith('/workspace/')
   )
 
   return (
     <div className="min-h-screen">
-      <Navbar />
+      <Navbar onMenuClick={() => setMobileOpen((s) => !s)} />
       <div className="max-w-7xl mx-auto px-4 py-6 flex gap-6">
-        {showSidebar ? <Sidebar /> : null}
+        {showSidebarBase ? <Sidebar mobileOpen={mobileOpen} onClose={() => setMobileOpen(false)} /> : null}
         <div className="flex-1">
           <Routes>
             <Route path="/" element={<Landing/>} />

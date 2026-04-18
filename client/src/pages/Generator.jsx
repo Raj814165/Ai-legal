@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import PreviewPanel from '../components/document/PreviewPanel'
 import FormFields from '../components/forms/FormFields'
-import axios from 'axios'
+import api from '../services/api'
 import { documentByType } from '../data/documentCatalog'
 
 export default function Generator(){
@@ -19,8 +19,13 @@ export default function Generator(){
   }, [type]);
 
   async function handleGenerate() {
-    const res = await axios.post('/api/generate', { docType: type, language, answers });
-    setDocContent(res.data.document);
+    try {
+      const res = await api.post('/generate', { docType: type, language, answers });
+      setDocContent(res.data.document);
+    } catch (err) {
+      console.error('Generate error', err);
+      setDocContent('Failed to generate document.');
+    }
   }
 
   if (!activeDocument) {

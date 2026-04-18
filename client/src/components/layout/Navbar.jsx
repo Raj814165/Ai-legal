@@ -5,7 +5,7 @@ import { useTheme } from '../../contexts/ThemeContext'
 import { useAuth } from '../../contexts/AuthContext'
 import { motion } from 'framer-motion'
 
-export default function Navbar(){
+export default function Navbar({ onMenuClick }){
   const navigate = useNavigate()
   const { theme, toggleTheme } = useTheme()
   const { user, isAuthenticated, logout } = useAuth()
@@ -19,7 +19,7 @@ export default function Navbar(){
     <motion.header initial={{y:-12, opacity:0}} animate={{y:0, opacity:1}} transition={{duration:0.35}} className="w-full">
       <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
         <div className="flex items-center gap-4">
-          <button className="p-2 rounded-md hover:bg-white/3 glass text-sm font-semibold"><Menu size={16} /></button>
+          <button onClick={onMenuClick} className="p-2 rounded-md hover:bg-white/3 glass text-sm font-semibold" aria-label="Toggle menu" aria-expanded="false"><Menu size={16} /></button>
           <Link to="/" className="flex items-center gap-3">
             <div className="w-10 h-10 bg-gradient-to-tr from-indigo-500 to-teal-400 rounded-full flex items-center justify-center shadow-lg">AI</div>
             <div className="hidden sm:block">
