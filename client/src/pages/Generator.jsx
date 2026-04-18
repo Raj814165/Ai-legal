@@ -3,20 +3,24 @@ import { useParams } from 'react-router-dom'
 import PreviewPanel from '../components/document/PreviewPanel'
 import FormFields from '../components/forms/FormFields'
 import api from '../services/api'
+import { useLanguage } from '../contexts/LanguageContext'
+import { useI18n } from '../i18n'
 import { documentByType } from '../data/documentCatalog'
 
 export default function Generator(){
   const { type } = useParams();
   const activeDocument = documentByType[type];
-  const [language, setLanguage] = useState('en');
+  const { language: siteLanguage } = useLanguage()
+  const [language, setLanguage] = useState(siteLanguage || 'en');
+  const { t } = useI18n()
   const [answers, setAnswers] = useState({});
   const [docContent, setDocContent] = useState('');
 
   useEffect(() => {
-    setLanguage('en');
+    setLanguage(siteLanguage || 'en');
     setAnswers({});
     setDocContent('');
-  }, [type]);
+  }, [type, siteLanguage]);
 
   async function handleGenerate() {
     try {
@@ -43,13 +47,13 @@ export default function Generator(){
         <div className="glass p-5 generator-sidebar generator-card">
           <div className="generator-sidebar__header">
             <div>
-              <div className="generator-sidebar__eyebrow">Document Builder</div>
+              <div className="generator-sidebar__eyebrow">{t('documentBuilder')}</div>
               <h2 className="font-semibold text-lg mt-1">{activeDocument.title}</h2>
               <p className="muted mt-2 text-sm">{activeDocument.desc}</p>
             </div>
           </div>
           <div className="mt-3">
-            <label className="text-sm muted">Language</label>
+            <label className="text-sm muted">{t('languageLabel')}</label>
             <select value={language} onChange={(e) => setLanguage(e.target.value)} className="form-select mt-1 w-full">
               <option value="en">English</option>
               <option value="hi">Hindi</option>
@@ -59,7 +63,7 @@ export default function Generator(){
             <FormFields questions={activeDocument.questions} answers={answers} onChange={setAnswers} />
           </div>
           <div className="generator-actions">
-            <button onClick={handleGenerate} className="w-full btn-primary">Generate Document</button>
+            <button onClick={handleGenerate} className="w-full btn-primary">{t('generateDocument')}</button>
           </div>
         </div>
       </div>

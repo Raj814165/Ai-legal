@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { useAuth } from '../contexts/AuthContext'
+import { useI18n } from '../i18n'
 
 export default function Login() {
   const navigate = useNavigate()
@@ -9,6 +10,7 @@ export default function Login() {
   const [form, setForm] = useState({ email: '', password: '' })
   const [error, setError] = useState('')
   const [submitting, setSubmitting] = useState(false)
+  const { t } = useI18n()
 
   async function handleSubmit(e) {
     e.preventDefault()
@@ -30,32 +32,32 @@ export default function Login() {
     <div className="auth-shell">
       <div className="glass auth-card">
         <div>
-          <div className="auth-kicker">Welcome Back</div>
-          <h1 className="text-2xl font-bold mt-2">Login to continue</h1>
-          <p className="muted mt-2 text-sm">Sign in to access your legal drafting workspace and saved session.</p>
+          <div className="auth-kicker">{t('welcomeBack')}</div>
+          <h1 className="text-2xl font-bold mt-2">{t('loginToContinue')}</h1>
+          <p className="muted mt-2 text-sm">{t('signinText')}</p>
         </div>
 
         <form onSubmit={handleSubmit} className="auth-form">
           <label className="form-field">
-            <span className="form-field__label">Email</span>
+            <span className="form-field__label">{t('emailLabel')}</span>
             <input
               type="email"
               className="form-input"
               value={form.email}
               onChange={(e) => setForm((current) => ({ ...current, email: e.target.value }))}
-              placeholder="Enter your email"
+              placeholder={t('enterEmail')}
               required
             />
           </label>
 
           <label className="form-field">
-            <span className="form-field__label">Password</span>
+            <span className="form-field__label">{t('passwordLabel')}</span>
             <input
               type="password"
               className="form-input"
               value={form.password}
               onChange={(e) => setForm((current) => ({ ...current, password: e.target.value }))}
-              placeholder="Enter your password"
+              placeholder={t('passwordLabel')}
               required
             />
           </label>
@@ -63,12 +65,12 @@ export default function Login() {
           {error ? <div className="auth-error">{error}</div> : null}
 
           <button type="submit" className="btn-primary w-full" disabled={submitting}>
-            {submitting ? 'Logging in...' : 'Login'}
+            {submitting ? t('login') + '...' : t('login')}
           </button>
         </form>
 
         <p className="text-sm muted">
-          Need an account? <Link to="/signup" className="auth-link">Sign up</Link>
+          {t('needAccount')} <Link to="/signup" className="auth-link">{t('signup')}</Link>
         </p>
       </div>
     </div>

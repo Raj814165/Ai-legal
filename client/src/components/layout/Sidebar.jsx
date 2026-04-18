@@ -19,7 +19,7 @@ export default function Sidebar({ mobileOpen = false, onClose = () => {} }){
           <NavLink
             key={item.to}
             to={item.to}
-            className={({isActive}) => `flex items-center gap-3 p-3 rounded-md transition-colors ${isActive ? 'bg-white/5 text-white' : 'text-muted hover:bg-white/3'}`}
+            className={({isActive}) => `flex items-center gap-3 p-3 rounded-md transition-colors nav-link ${isActive ? 'nav-active' : 'nav-inactive'}`}
           >
             <span className="text-sky-300 shrink-0 text-xs font-semibold">DOC</span>
             <span className="text-sm">{item.label}</span>

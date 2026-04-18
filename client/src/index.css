@@ -13,6 +13,10 @@ body{
 	transition: background 220ms ease, color 220ms ease;
 }
 
+@media (max-width: 420px){
+	.navbar-language { display: none; }
+}
+
 /* Dark theme */
 .theme-dark {
 	--bg-1: #071029;
@@ -26,6 +30,11 @@ body{
 	--input-bg: rgba(255,255,255,0.02);
 	--input-border: rgba(255,255,255,0.06);
 	--card-surface: rgba(255,255,255,0.02);
+
+	--hover-bg: rgba(255,255,255,0.04);
+	--btn-shadow-color: rgba(79,70,229,0.12);
+	--badge-bg: rgba(79,70,229,0.12);
+	--badge-border: rgba(79,70,229,0.22);
 }
 
 /* Light theme */
@@ -41,6 +50,11 @@ body{
 	--input-bg: #ffffff;
 	--input-border: rgba(15,23,42,0.08);
 	--card-surface: rgba(2,6,23,0.02);
+
+	--hover-bg: rgba(2,6,23,0.04);
+	--btn-shadow-color: rgba(55,48,163,0.08);
+	--badge-bg: rgba(55,48,163,0.08);
+	--badge-border: rgba(55,48,163,0.12);
 }
 
 /* Glass card */
@@ -103,8 +117,8 @@ body{
 	transition: box-shadow 160ms ease, border-color 160ms ease, background 160ms ease;
 }
 .form-input:focus, .form-select:focus {
-	box-shadow: 0 4px 18px rgba(79,70,229,0.12);
-	border-color: var(--btn-from);
+	box-shadow: 0 4px 18px var(--btn-shadow-color);
+ 	border-color: var(--btn-from);
 }
 .form-textarea {
 	background: var(--input-bg);
@@ -117,8 +131,8 @@ body{
 	transition: box-shadow 160ms ease, border-color 160ms ease;
 }
 .form-textarea:focus {
-	box-shadow: 0 6px 26px rgba(79,70,229,0.12);
-	border-color: var(--btn-from);
+ 	box-shadow: 0 6px 26px var(--btn-shadow-color);
+ 	border-color: var(--btn-from);
 }
 .form-textarea--compact {
 	min-height: 7.5rem;
@@ -179,15 +193,27 @@ body{
 	color: var(--text);
 }
 .form-intro__badge {
-	padding: 0.45rem 0.75rem;
-	border-radius: 999px;
-	background: rgba(79,70,229,0.12);
-	border: 1px solid rgba(79,70,229,0.22);
-	color: var(--text);
-	font-size: 0.78rem;
-	font-weight: 600;
-	white-space: nowrap;
+ 	padding: 0.45rem 0.75rem;
+ 	border-radius: 999px;
+ 	background: var(--badge-bg);
+ 	border: 1px solid var(--badge-border);
+ 	color: var(--text);
+ 	font-size: 0.78rem;
+ 	font-weight: 600;
+ 	white-space: nowrap;
 }
+
+/* Hover helpers that adapt to theme */
+.hover-theme { transition: background 160ms ease; }
+.hover-theme:hover { background: var(--hover-bg); }
+
+/* Navigation link styles that adapt to theme */
+.nav-link { color: var(--muted); transition: background 160ms, color 160ms; }
+.nav-link.nav-active { background: var(--hover-bg); color: var(--text); }
+.nav-link.nav-inactive:hover { background: var(--hover-bg); color: var(--text); }
+
+/* Use card surface for user chip so it adapts across themes */
+.nav-user-chip { background: var(--card-surface); }
 .form-progress {
 	width: 100%;
 	height: 0.45rem;
@@ -371,6 +397,12 @@ body{
 	.nav-user-chip {
 		display: none;
 	}
+
+	/* compact language selector on small screens */
+	.navbar-language { min-width: 90px; font-size: 0.85rem; }
+
+	/* hide language selector on very small screens to save space */
+
 	.auth-card {
 		padding: 1.25rem;
 	}

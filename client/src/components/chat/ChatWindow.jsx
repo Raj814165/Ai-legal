@@ -1,10 +1,12 @@
 import React, { useEffect, useRef, useState } from 'react'
 import MessageBubble from './MessageBubble'
 import ChatInput from './ChatInput'
+import { useI18n } from '../../i18n'
 
 export default function ChatWindow({ onAnswersChange }){
+  const { t } = useI18n()
   const [messages, setMessages] = useState([
-    { role: 'ai', text: 'Hello — I can help you create a formal legal document. Which template would you like to use?', time: new Date().toLocaleTimeString() }
+    { role: 'ai', text: t('chatGreeting') || 'Hello — I can help you create a formal legal document. Which template would you like to use?', time: new Date().toLocaleTimeString() }
   ])
   const containerRef = useRef()
 
@@ -20,7 +22,7 @@ export default function ChatWindow({ onAnswersChange }){
 
     // mock AI reply
     setTimeout(()=>{
-      setMessages(m=>[...m, { role: 'ai', text: 'Thanks — I have noted this and will draft the document accordingly.', time: new Date().toLocaleTimeString() }])
+      setMessages(m=>[...m, { role: 'ai', text: t('chatReply') || 'Thanks — I have noted this and will draft the document accordingly.', time: new Date().toLocaleTimeString() }])
     }, 800)
   }
 

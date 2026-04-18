@@ -1,35 +1,47 @@
 
-# AI Legal Aid — RTI & Legal Draft Generator
+# AI Legal Aid — Bilingual Legal Draft Generator (Hackathon-ready)
 
-AI Legal Aid is a lightweight full-stack app to generate bilingual (English/Hindi) legal drafts — RTI applications, FIR drafts, consumer complaints, legal notices, affidavits, tenancy disputes, employment complaints, cyber complaints, and more. It uses template files and an optional AI assistant to extract structured inputs and fill templates.
+AI Legal Aid helps users quickly produce formal legal drafts (RTI, FIR, complaints, notices, affidavits, tenancy & employment complaints, cyber complaints, court applications, and more) using editable templates and guided inputs. The app supports English and Hindi output, per-user persistence, and a lightweight chat assistant to collect structured answers.
+
+Why this project
+- Rapidly create formal legal documents from templates.
+- Bilingual support (English/Hindi) for broader accessibility.
+- Simple API to generate, preview, save, and export drafts.
+
+Key features
+- Guided Document Builder with live preview
+- Bilingual output: English and Hindi
+- Template library (plain-text templates under `server/templates/`)
+- Per-user persistence: generated drafts are saved to MongoDB
+- Authentication with JWT (signup/login)
+- Export to PDF from the Preview panel
+- Lightweight chat assistant to help collect inputs (mockable, optional OpenAI integration)
+- Theme toggle and language selector in the navbar
 
 Tech stack
 - Frontend: React + Vite
 - Backend: Node.js + Express
-- Database: MongoDB (Mongoose)
-- Optional: OpenAI for structured extraction (configured via `OPENAI_API_KEY`)
+- Database: MongoDB via Mongoose
+- Optional: OpenAI (for automated extraction of structured answers)
 
-Highlights / Features
-- Document Builder: guided forms to collect information and generate draft documents.
-- Bilingual output: generate in English or Hindi.
-- Chat assistant: contextual chat helps collect or refine inputs for drafts.
-- Editable live preview and PDF export.
-- Authentication (signup/login) with JWT; generated documents persist to MongoDB per user.
-- Templates browser: inspect template text via API.
+Repository layout (high level)
+- `client/` — React app (entry: `client/src/main.jsx`, pages under `client/src/pages`)
+- `server/` — Express API (entry: `server/index.js`, models in `server/models`)
+- `server/templates/` — plain text templates used to render documents
 
 Prerequisites
 - Node.js 18+ and npm
-- A running MongoDB instance (local or Atlas)
+- MongoDB (local or Atlas) running and accessible
 
-Environment variables
-- `MONGODB_URI` — MongoDB connection string (defaults to `mongodb://127.0.0.1:27017/hckgg`)
-- `JWT_SECRET` — signing key for JSON Web Tokens (defaults to `devsecret` for local dev)
-- `OPENAI_API_KEY` — optional, set to enable OpenAI-powered extraction
-- `PORT` — optional server port (defaults to `4000`)
+Essential environment variables (server)
+- `MONGODB_URI` — MongoDB connection string (example: `mongodb://127.0.0.1:27017/ai_legal`) — defaults to `mongodb://127.0.0.1:27017/hckgg` for local dev
+- `JWT_SECRET` — secret key for JWT signing (set a strong value for production)
+- `OPENAI_API_KEY` — optional, set to enable OpenAI features
+- `PORT` — server port (default `4000`)
 
-Quick start (development)
+Quick start — development
 
-1. Start the backend
+1) Backend
 
 ```bash
 cd server
@@ -38,7 +50,7 @@ npm install
 npm run dev
 ```
 
-2. Start the frontend
+2) Frontend
 
 ```bash
 cd client
@@ -46,36 +58,66 @@ npm install
 npm run dev
 ```
 
-Open the app in the browser (Vite default): `http://localhost:5173`. The dev server proxies `/api` to `http://localhost:4000`.
+Open the frontend (Vite): `http://localhost:5173` (client proxies `/api` to the backend).
 
-API overview
-- `POST /api/auth/signup` — create account (body: `{ name, email, password }`)
-- `POST /api/auth/login` — login (body: `{ email, password }`) — returns `token`
+API overview (most-used endpoints)
+
+- `POST /api/auth/signup` — create account
+	- body: `{ name, email, password }`
+- `POST /api/auth/login` — login
+	- body: `{ email, password }` — returns `{ token }`
 - `GET /api/auth/me` — get current user (requires `Authorization: Bearer <token>`)
-- `POST /api/generate` — generate a document (requires auth) — body: `{ docType, language, answers }`.
-	- Response includes `document` (text) and saved metadata under `saved` when successful.
-- `GET /api/documents` — list saved documents for current user (requires auth)
-- `POST /api/documents` — save a document manually (requires auth)
-- `GET /api/documents/:id` — fetch a saved document (requires auth)
-- `GET /api/templates` — list available template files
-- `GET /api/templates/:docType/:lang` — fetch template content (e.g. `/api/templates/rti/en`)
+- `POST /api/generate` — generate and (optionally) save a document (requires auth)
+	- body: `{ docType, language, answers }`
+	- response: `{ document: <text>, saved: <metadata> }` when saved
+- `GET /api/documents` — list saved documents (user-scoped)
+- `GET /api/documents/:id` — fetch a saved document
+- `GET /api/templates` — list available templates
+- `GET /api/templates/:docType/:lang` — fetch template content
 
-Directory layout (important files)
-- `client/` — React frontend (entry: `client/src/main.jsx`, pages in `client/src/pages`)
-- `server/` — Express backend (entry: `server/index.js`)
-- `server/templates/` — text templates used to render documents
+Quick curl examples
 
-Demo checklist (recommended for hackathon)
-1. Signup and login to create a user.
-2. Navigate to the document builder (`Workspace`) and select a template.
-3. Fill form fields (or use the chat assistant) and click Generate — verify the generated text appears and is saved.
-4. Visit `/api/documents` (via curl or later UI) to verify documents persisted in MongoDB.
-5. Use the Preview panel to edit and export PDF.
+Sign up:
 
-Troubleshooting
-- If the backend fails to start, ensure MongoDB is running and `MONGODB_URI` is set.
-- For OpenAI features, set `OPENAI_API_KEY` in environment.
+```bash
+curl -X POST http://localhost:4000/api/auth/signup \
+	-H "Content-Type: application/json" \
+	-d '{"name":"Alice","email":"alice@example.com","password":"secret"}'
+```
 
-Want me to demo or add a UI page to list saved documents? I can add a "My Documents" view and wire download/open actions.
+Login (get token):
+
+```bash
+curl -X POST http://localhost:4000/api/auth/login \
+	-H "Content-Type: application/json" \
+	-d '{"email":"alice@example.com","password":"secret"}'
+```
+
+Generate (authenticated):
+
+```bash
+curl -X POST http://localhost:4000/api/generate \
+	-H "Content-Type: application/json" \
+	-H "Authorization: Bearer <TOKEN>" \
+	-d '{"docType":"complaint","language":"en","answers":{"name":"Alice","detail":"..."}}'
+```
+
+Troubleshooting & notes
+- If the backend fails to connect to MongoDB, confirm `MONGODB_URI` and that MongoDB is running.
+- For local development you can use the provided default `MONGODB_URI` if you run MongoDB locally.
+- OpenAI features are optional — do not set `OPENAI_API_KEY` if you don't want to use them.
+
+Planned / Next steps (quick wins for the hackathon)
+- Add a dedicated "My Documents" frontend page to list, open, and download saved drafts (API already available).
+- Improve translations for question labels and template placeholders (currently core UI strings are localized).
+- Add small E2E smoke tests for signup -> generate -> list flow.
+
+Credits
+- Built for a hackathon demo — feel free to fork and iterate.
+
+If you want, I can:
+- add the `My Documents` UI now and wire it to `GET /api/documents`, or
+- start the dev servers here, run a quick end-to-end (signup -> generate -> list) and report results.
+
 
 

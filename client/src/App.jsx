@@ -22,7 +22,7 @@ export default function App(){
 
   return (
     <div className="min-h-screen">
-      <Navbar onMenuClick={() => setMobileOpen((s) => !s)} />
+      <Navbar onMenuClick={() => setMobileOpen((s) => !s)} mobileOpen={mobileOpen} />
       <div className="max-w-7xl mx-auto px-4 py-6 flex gap-6">
         {showSidebarBase ? <Sidebar mobileOpen={mobileOpen} onClose={() => setMobileOpen(false)} /> : null}
         <div className="flex-1">
