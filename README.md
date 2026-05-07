@@ -59,7 +59,7 @@ AI-Legal/
 ## 1️⃣ Clone the Repository
 
 ```bash
-git clone <your-repo-link>
+git clone https://github.com/Raj814165/Ai-legal.git
 cd AI-Legal
 ```
 
