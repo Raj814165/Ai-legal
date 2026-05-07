@@ -119,16 +119,6 @@ npm run dev
 
 ---
 
-# 📸 Screenshots
-
-Add your project screenshots here.
-
-```bash
-client/public/screenshots/
-```
-
----
-
 # 🌟 Future Improvements
 
 * Voice-based Complaint Generation
